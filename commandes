@@ -4,3 +4,15 @@ make
 python convert-hf-to-gguf.py --model deepseek-coder --output deepseek-coder.gguf
 ollama create deepseek-coder -f deepseek-coder.gguf
 ollama run deepseek-coder "Écris-moi un script Python qui trie une liste."
+
+
+(myenv) ut3lfx@udvpaap00000sz0:/data/users/ut3lfx/ollama/llama.cpp 
+ # python3.8 convert_hf_to_gguf.py --model ../deepseek-coder --output ../deepseek-coder.gguf
+Traceback (most recent call last):
+  File "convert_hf_to_gguf.py", line 22, in <module>
+    import torch
+  File "/data/users/ut3lfx/ollama/myenv/lib/python3.8/site-packages/torch/__init__.py", line 18, in <module>
+    import ctypes
+  File "/data/users/ut3lfx/localpython/lib/python3.8/ctypes/__init__.py", line 7, in <module>
+    from _ctypes import Union, Structure, Array
+ModuleNotFoundError: No module named '_ctypes'
