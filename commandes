@@ -1,0 +1,6 @@
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+make
+python convert-hf-to-gguf.py --model deepseek-coder --output deepseek-coder.gguf
+ollama create deepseek-coder -f deepseek-coder.gguf
+ollama run deepseek-coder "Écris-moi un script Python qui trie une liste."
