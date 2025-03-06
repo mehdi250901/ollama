@@ -31,4 +31,14 @@ ls /usr/bin/python*
 /usr/bin/python3.8 -c "import _ctypes; print('ctypes fonctionne')"
 
 
+git clone https://huggingface.co/deepseek-ai/deepseek-coder
+pip install torch numpy sentencepiece
+python convert-hf-to-gguf.py \
+    --model ../deepseek-coder \
+    --output ../deepseek-coder.gguf \
+    --architecture deepseek-coder
+
+python convert-hf-to-gguf.py --model ../deepseek-coder --output ../deepseek-coder.gguf --architecture auto
+
+
 
