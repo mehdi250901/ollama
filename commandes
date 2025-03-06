@@ -16,3 +16,19 @@ Traceback (most recent call last):
   File "/data/users/ut3lfx/localpython/lib/python3.8/ctypes/__init__.py", line 7, in <module>
     from _ctypes import Union, Structure, Array
 ModuleNotFoundError: No module named '_ctypes'
+
+
+find /usr/lib -name "_ctypes.so"
+find ~/ -name "_ctypes.so"
+export PYTHONPATH=/chemin/vers/_ctypes.so:$PYTHONPATH
+python -c "import _ctypes; print('ctypes fonctionne')"
+
+
+python -c "import sys; print(sys.path)"
+python -c "help('modules') | grep ctypes"
+
+ls /usr/bin/python*
+/usr/bin/python3.8 -c "import _ctypes; print('ctypes fonctionne')"
+
+
+
