@@ -41,4 +41,9 @@ python convert-hf-to-gguf.py \
 python convert-hf-to-gguf.py --model ../deepseek-coder --output ../deepseek-coder.gguf --architecture auto
 
 
+pip install huggingface_hub
+from huggingface_hub import snapshot_download
+
+snapshot_download(repo_id="deepseek-ai/deepseek-coder-6.7B", local_dir="deepseek-coder")
+
 
