@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama
+  labels:
+    app: ollama
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+    spec:
+      containers:
+        - name: ollama
+          image: ollama/ollama
+          ports:
+            - containerPort: 11434
+          #command: ["/bin/bash", "-c", "ollama serve & sleep 10 && ollama run tinyllama | tee /dev/stdout"] Docker Hub
+          volumeMounts:
+            - name: ollama-volume
+              mountPath: /root/.ollama/models
+          resources:
+            requests:
+              memory: "10Gi"   # Ajuster en fonction de la charge mémoire requise
+              cpu: "5"
+            limits:
+              memory: "10Gi"   # Limite de mémoire pour éviter des dépassements
+              cpu: "5"
+      volumes:
+        - name: ollama-volume
+          persistentVolumeClaim:
+            claimName: ollama-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ollama-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 30Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-service
+spec:
+  selector:
+    app: ollama
+  ports:
+    - protocol: TCP
+      port: 11434  # Port exposé dans Kubernetes
+      targetPort: 11434  # Port sur lequel l'application écoute
+  type: ClusterIP
