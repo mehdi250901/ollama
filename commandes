@@ -46,4 +46,7 @@ from huggingface_hub import snapshot_download
 
 snapshot_download(repo_id="deepseek-ai/deepseek-coder-6.7B", local_dir="deepseek-coder")
 
+root@ollama-5c7f9d64c5-n9fdl:~/.ollama/models/blobs# ollama create deepseek-r1:1.5b --file sha256-aabd4debf0c8f08881923f2c25fc0fdeed24435271c2b3e92c4af36704040dbc
+
+Error: (line 1): command must be one of "from", "license", "template", "system", "adapter", "parameter", or "message"
 
