@@ -24,6 +24,9 @@ export PYTHONPATH=/chemin/vers/_ctypes.so:$PYTHONPATH
 python -c "import _ctypes; print('ctypes fonctionne')"
 
 
+
+
+
 python -c "import sys; print(sys.path)"
 python -c "help('modules') | grep ctypes"
 
@@ -50,3 +53,8 @@ root@ollama-5c7f9d64c5-n9fdl:~/.ollama/models/blobs# ollama create deepseek-r1:1
 
 Error: (line 1): command must be one of "from", "license", "template", "system", "adapter", "parameter", or "message"
 
+
+
+ollama create deepseek-r1:1.5b --file Modelfile   
+
+modelfile : FROM deepseek-r1:1.5b
