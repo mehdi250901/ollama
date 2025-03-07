@@ -34,6 +34,10 @@ ls /usr/bin/python*
 /usr/bin/python3.8 -c "import _ctypes; print('ctypes fonctionne')"
 
 
+Envoyer ce qu'il y'a dans blobs et dans manifest
+
+
+
 git clone https://huggingface.co/deepseek-ai/deepseek-coder
 pip install torch numpy sentencepiece
 python convert-hf-to-gguf.py \
